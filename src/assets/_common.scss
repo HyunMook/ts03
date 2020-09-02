@@ -49,26 +49,50 @@ body {
 
 /* Spacing */
 .ma {
-  @include squence-small(padding);
-  @include squence(padding);
+  @include squence-small(margin, 'rem');
+  @include squence(margin, 'rem');
 }
 .mx,
 .ml {
-  @include squence-small(padding-left);
-  @include squence(padding-left);
+  @include squence-small(margin-left, 'rem');
+  @include squence(margin-left, 'rem');
 }
 .mx,
 .mr {
-  @include squence-small(padding-right);
-  @include squence(padding-right);
+  @include squence-small(margin-right, 'rem');
+  @include squence(margin-right, 'rem');
 }
 .my,
 .mt {
-  @include squence-small(padding-top);
-  @include squence(padding-top);
+  @include squence-small(margin-top, 'rem');
+  @include squence(margin-top, 'rem');
 }
 .my,
 .mb {
-  @include squence-small(padding-bottom);
-  @include squence(padding-bottom);
+  @include squence-small(margin-bottom, 'rem');
+  @include squence(margin-bottom, 'rem');
+}
+.pa {
+  @include squence-small(padding, 'rem');
+  @include squence(padding, 'rem');
+}
+.px,
+.pl {
+  @include squence-small(padding-left, 'rem');
+  @include squence(padding-left, 'rem');
+}
+.px,
+.pr {
+  @include squence-small(padding-right, 'rem');
+  @include squence(padding-right, 'rem');
+}
+.py,
+.pt {
+  @include squence-small(padding-top, 'rem');
+  @include squence(padding-top, 'rem');
+}
+.py,
+.pb {
+  @include squence-small(padding-bottom, 'rem');
+  @include squence(padding-bottom, 'rem');
 }

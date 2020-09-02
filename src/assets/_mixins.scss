@@ -1,15 +1,15 @@
-@mixin squence-small($prop) {
+@mixin squence-small($prop, $unit) {
   @for $i from 1 through 9 {
-    $size: ($i / 10) rem;
+    $size: ($i / 10);
     &-0#{$i} {
-      #{$prop}: $size;
+      #{$prop}: $size#{$unit};
     }
   }
 }
-@mixin squence($prop) {
+@mixin squence($prop, $unit) {
   @for $i from 1 through 10 {
     &-#{$i} {
-      #{$prop}: #{$i}rem;
+      #{$prop}: #{$i}#{$unit};
     }
   }
 }
