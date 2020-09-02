@@ -1,0 +1,74 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+/* Flex */
+.row-flex {
+  display: flex;
+  flex-direction: row;
+}
+.col-flex {
+  display: flex;
+  flex-direction: column;
+}
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-start {
+  justify-content: flex-start;
+}
+.jc-end {
+  justify-content: flex-end;
+}
+.jc-space-between {
+  justify-content: space-between;
+}
+.jc-space-evenly {
+  justify-content: space-evenly;
+}
+.ai-center {
+  align-items: center;
+}
+.ai-start {
+  align-items: flex-start;
+}
+.ai-end {
+  align-items: flex-end;
+}
+.ai-stretch {
+  align-items: stretch;
+}
+
+/* Spacing */
+.ma {
+  @include squence-small(padding);
+  @include squence(padding);
+}
+.mx,
+.ml {
+  @include squence-small(padding-left);
+  @include squence(padding-left);
+}
+.mx,
+.mr {
+  @include squence-small(padding-right);
+  @include squence(padding-right);
+}
+.my,
+.mt {
+  @include squence-small(padding-top);
+  @include squence(padding-top);
+}
+.my,
+.mb {
+  @include squence-small(padding-bottom);
+  @include squence(padding-bottom);
+}
