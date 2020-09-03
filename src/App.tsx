@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import NotFound from './components/NotFound';
 import Board from './components/Board';
+import Post from './components/Post';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/board" component={Board} />
+        <Route path="/post/:seq" component={Post} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>

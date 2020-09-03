@@ -1,0 +1,11 @@
+#postWrapper {
+  .postTitle {
+    > h3 {
+    }
+  }
+  .postButtons {
+    > h3 {
+      display: none;
+    }
+  }
+}

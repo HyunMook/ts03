@@ -1,0 +1,9 @@
+#boardTable {
+  tr {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #e4e4e4;
+    }
+  }
+}

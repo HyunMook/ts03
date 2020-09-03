@@ -46,6 +46,9 @@ body {
 .ai-stretch {
   align-items: stretch;
 }
+.flex {
+  @include squence(flex, '');
+}
 
 /* Spacing */
 .ma {
@@ -95,4 +98,9 @@ body {
 .pb {
   @include squence-small(padding-bottom, 'rem');
   @include squence(padding-bottom, 'rem');
+}
+
+/* Components Layout */
+.contentWrapper {
+  padding: 1.5rem;
 }
