@@ -1,11 +1,19 @@
 #postWrapper {
   .postTitle {
+    margin-bottom: 2rem;
+
     > h3 {
     }
+  }
+  .postContent {
   }
   .postButtons {
     > h3 {
       display: none;
     }
+  }
+
+  .mdEditorWrapper {
+    padding-left: 35px;
   }
 }

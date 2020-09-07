@@ -9,3 +9,24 @@ export function getSearchParamsToObject(searchParam: string) {
     });
   return rst;
 }
+
+export function escapeJsonString(stringified: string) {
+  return stringified.replace(/\\n/g, '\\n');
+  // .replace(/\\'/g, "\\'")
+  // .replace(/\\"/g, '\\"')
+  // .replace(/\\&/g, '\\&')
+  // .replace(/\\r/g, '\\r')
+  // .replace(/\\t/g, '\\t')
+  // .replace(/\\b/g, '\\b')
+  // .replace(/\\f/g, '\\f');
+}
+export function unescapeJsonString(stringified: string) {
+  return stringified.replace(/\\n/g, 'n');
+  // .replace(/\\'/g, "'")
+  // .replace(/\\"/g, '"')
+  // .replace(/\\&/g, '&')
+  // .replace(/\\r/g, 'r')
+  // .replace(/\\t/g, 't')
+  // .replace(/\\b/g, 'b')
+  // .replace(/\\f/g, 'f');
+}

@@ -5,9 +5,12 @@ import {
   Switch,
   Route,
   Redirect,
+  NavLink,
+  useParams,
 } from 'react-router-dom';
 import NotFound from './NotFound';
 import { getSearchParamsToObject } from '../modules/common';
+import { IPostData } from '../types/project';
 
 function Board({ match }: RouteComponentProps) {
   // console.log(props);
@@ -24,11 +27,40 @@ function Board({ match }: RouteComponentProps) {
   );
 }
 
-function RenderBoard(props: RouteComponentProps) {
-  const pageList = [1, 2, 3, 4, 5];
-  const getParams = getSearchParamsToObject(props.location.search);
+const PAGE_LIST_COUNT = 3;
+interface IBoardRouteParam {
+  page: string;
+}
 
-  console.log(getParams);
+function RenderBoard(props: RouteComponentProps) {
+  const params: IBoardRouteParam = useParams();
+  const getSearchParams: object = getSearchParamsToObject(
+    props.location.search
+  );
+  console.log(getSearchParams);
+  const [postList, setPostList] = React.useState([]);
+
+  // Sample Handling
+  const sampleData = require('./samplePost.json');
+  const pageList: number[] = new Array(
+    Math.ceil(sampleData.length / PAGE_LIST_COUNT)
+  )
+    .fill(null)
+    .map((sdt, idx) => idx + 1);
+
+  React.useEffect(() => {
+    setPostList(
+      require('./samplePost.json').filter(
+        (dt: IPostData, idx: number) =>
+          idx < PAGE_LIST_COUNT * Number(params.page) &&
+          idx >= PAGE_LIST_COUNT * (Number(params.page) - 1)
+      )
+    );
+  }, [params.page]);
+
+  const readPost = (seq: number | string) => {
+    props.history.push('/post/read/' + seq);
+  };
 
   return (
     <div className="contentWrapper">
@@ -43,23 +75,36 @@ function RenderBoard(props: RouteComponentProps) {
             </tr>
           </thead>
           <tbody>
-            <tr onClick={() => props.history.push('/post/1')}>
-              <td>1</td>
-              <td>테스트</td>
-              <td>샘플 제목입니다.</td>
-              <td>2020-09-03 10:10:10</td>
-            </tr>
+            {postList.map((p: IPostData, i) => (
+              <tr key={i} onClick={(e) => readPost(p.seq)}>
+                <td>{p.seq}</td>
+                <td>테스트</td>
+                <td>{p.title}</td>
+                <td>2020-09-03 10:10:10</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
-      <div className="boardPagination">
-        <ul>
+      <div className="boardButtonsWrapper">
+        <div id="boardButtons" className="row-flex jc-end">
+          <Link className="btn ml-1" to="/post/write">
+            글쓰기
+          </Link>
+        </div>
+      </div>
+      <div className="boardPaginationWrapper">
+        <div id="boardPagination" className="row-flex jc-center">
           {pageList.map((page) => (
-            <li key={page}>
-              <Link to={`/board/${page}`}>{page}</Link>
-            </li>
+            <NavLink
+              key={page}
+              className="page ma-03 px-1 py-05"
+              to={`/board/${page}`}
+            >
+              {page}
+            </NavLink>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

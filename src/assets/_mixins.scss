@@ -13,3 +13,29 @@
     }
   }
 }
+@mixin colors($prop, $opacity: 1) {
+  &-white {
+    @extend #{&};
+    #{$prop}: $color-white;
+  }
+  &-light-gray {
+    @extend #{&};
+    #{$prop}: $color-light-gray;
+  }
+  &-gray {
+    @extend #{&};
+    #{$prop}: $color-gray;
+  }
+  &-dark-gray {
+    @extend #{&};
+    #{$prop}: $color-dark-gray;
+  }
+  &-black {
+    @extend #{&};
+    #{$prop}: $color-black;
+  }
+  &-blue {
+    @extend #{&};
+    #{$prop}: $color-blue;
+  }
+}

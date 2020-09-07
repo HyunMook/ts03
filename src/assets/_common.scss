@@ -4,6 +4,55 @@ body {
   padding: 0;
   font-size: 16px;
 }
+/* HTML Default */
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+h1,
+.h1 {
+  font-size: 2rem;
+}
+h2,
+.h2 {
+  font-size: 1.5rem;
+}
+h3,
+.h3 {
+  font-size: 1.2rem;
+}
+
+/* Colors */
+.bg {
+  @include colors(background-color);
+}
+.fc {
+  @include colors(color);
+}
+
+/* Display */
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+.d-inline {
+  display: inline;
+}
+.d-inlineb {
+  display: inline-block;
+}
+.pos-rel {
+  position: relative;
+}
+.pos-abs {
+  position: absolute;
+}
+.pos-fixed {
+  position: fixed;
+}
 
 /* Flex */
 .row-flex {
@@ -103,4 +152,35 @@ body {
 /* Components Layout */
 .contentWrapper {
   padding: 1.5rem;
+}
+input[type='text'],
+input[type='number'],
+input[type='password'],
+input[type='email'] {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid $color-gray;
+}
+.brd {
+  &-01 {
+    border: {
+      radius: 5px;
+      width: 1px;
+      style: solid;
+    }
+    @include colors(border-color);
+  }
+}
+.btn {
+  border-radius: 5px;
+  border: 1px solid $color-blue;
+  background-color: $color-blue;
+  color: $color-white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken($color-blue, 20);
+  }
 }

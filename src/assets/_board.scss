@@ -7,3 +7,15 @@
     }
   }
 }
+
+#boardPagination {
+  a.page {
+    border: 1px solid $color-light-gray;
+    text-decoration: none;
+
+    &.active {
+      background-color: $color-blue;
+      color: white;
+    }
+  }
+}

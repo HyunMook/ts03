@@ -11,7 +11,9 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/board" component={Board} />
-        <Route path="/post/:seq" component={Post} />
+        <Route path="/post/read/:seq" component={() => <Post pType="read" />} />
+        <Route path="/post/edit/:seq" component={() => <Post pType="edit" />} />
+        <Route path="/post/write" component={() => <Post pType="write" />} />
         <Route path="*" component={NotFound} />
       </Switch>
     </BrowserRouter>
